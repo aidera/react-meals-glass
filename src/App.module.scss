@@ -1,0 +1,14 @@
+.container {
+  position: relative;
+  margin: 0 auto;
+  width: 1200px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 60px;
+  padding: 60px 0;
+
+  @media (max-width: 1300px) {
+    width: 100%;
+    padding: 60px 5vw;
+  }
+}

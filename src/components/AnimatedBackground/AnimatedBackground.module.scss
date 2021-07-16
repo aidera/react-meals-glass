@@ -1,0 +1,22 @@
+.background {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -10;
+  background: linear-gradient(to right, #f4b673, #cdbff4);
+
+  svg {
+    position: fixed;
+  }
+}
+
+.wave1 {
+  width: 120%;
+  margin-top: 5%;
+  margin-left: -10%;
+  opacity: 0.5;
+  fill: white;
+}
+

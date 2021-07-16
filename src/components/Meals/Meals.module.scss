@@ -1,0 +1,8 @@
+.meals {
+  flex-basis: 0;
+  flex-grow: 999;
+  min-width: '40%';
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
