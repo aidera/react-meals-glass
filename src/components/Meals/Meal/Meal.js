@@ -5,7 +5,7 @@ import Card from '../../UI/Card/Card';
 
 const Meal = () => {
   return <div className={classes.mealContainer}>
-    <Card>Meal</Card>
+    <Card>Meal1</Card>
   </div>;
 };
 
