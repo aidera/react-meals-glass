@@ -1,3 +1,23 @@
-.mealContainer {
+.container {
   max-width: 400px;
+  position: relative;
+  perspective: 1000px;
+}
+
+.animation {
+  transition: 0.5s;
+}
+
+.card {
+  transform-style: flat;
+}
+
+.imageContainer {
+  position: relative;
+  overflow: visible;
+}
+
+.image {
+  width: 130%;
+  margin-left: -35%;
 }
