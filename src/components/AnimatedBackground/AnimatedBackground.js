@@ -1,17 +1,14 @@
 import React, { useRef, useEffect } from 'react';
 
-import { useMousePosition } from '../../hooks/useMousePosition';
 import classes from './AnimatedBackground.module.scss';
 
 const AnimatedBackground = () => {
   const wave1Ref = useRef();
   const wave2Ref = useRef();
 
-  const positions = useMousePosition();
-
-  useEffect(() => {
-    const xP = (positions.x / window.innerWidth) * 100;
-    const yP =  (positions.y / window.innerHeight) * 100;
+  const moveWave = (event) => {
+    const xP = (event.clientX / window.innerWidth) * 100;
+    const yP =  (event.clientY / window.innerHeight) * 100;
 
     wave1Ref.current.setAttribute(
       'd',
@@ -25,7 +22,11 @@ const AnimatedBackground = () => {
         (500 * xP) / 100
       },0 500,100 L500,00 L0,0 Z`
     );
-  }, [positions])
+  }
+
+  useEffect(() => {
+    window.addEventListener("mousemove", moveWave);
+  }, [])
 
   return (
     <div  className={classes.background}>
