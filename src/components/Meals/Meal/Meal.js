@@ -12,8 +12,8 @@ const Meal = (props) => {
   const moveMeal = (event) => {
     const refSizes = containerRef.current.getBoundingClientRect();
 
-    const x = event.nativeEvent.layerX;
-    const y = event.nativeEvent.layerY;
+    const x = event.nativeEvent.x;
+    const y = event.nativeEvent.y;
 
     const xAxisRotation = (y - refSizes.height / 2) * (20 / refSizes.height);
     const yAxisRotation = -(x - refSizes.width / 2) * (20 / refSizes.width);
@@ -28,13 +28,10 @@ const Meal = (props) => {
   };
 
   const resetMoveMeal = () => {
-    const transformations = [
-      'rotateY(0deg)',
-      'rotateX(0deg)',
-    ];
+    const transformations = ['rotateY(0deg)', 'rotateX(0deg)'];
     animationRef.current.style.transition = '0.5s';
     animationRef.current.style.transform = transformations.join(' ');
-  }
+  };
 
   return (
     <div
@@ -45,11 +42,18 @@ const Meal = (props) => {
     >
       <div ref={animationRef} className={classes.animation}>
         <Card className={classes.card}>
-          <div className={classes.imageContainer}>
-            <img className={classes.image} src={meal.img} />
+          <div className={classes.content}>
+            <div className={classes.imageContainer}>
+              <img className={classes.image} src={meal.img} />
+            </div>
+            <h3 className={classes.h3}>{meal.title}</h3>
+            <div className={classes.description}>{meal.description}</div>
+            <span className={classes.price}>${meal.price}</span>
           </div>
-          <h3>{meal.title}</h3>
-          <span>{meal.price}</span>
+          <div>
+            <div className={classes.addToCart}><span>+</span><span>Add to Cart</span></div>
+            <div className={classes.addToCartBG}></div>
+          </div>
         </Card>
       </div>
     </div>
