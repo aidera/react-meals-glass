@@ -1,10 +1,13 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 
 import classes from './Meal.module.scss';
 import Card from '../../UI/Card/Card';
+import AddToCartModal from '../../AddToCartModal/AddToCartModal';
 
 const Meal = (props) => {
   const { meal, addToCart } = props;
+
+  const [isAddToCartModalOpen, setIsAddToCartModalOpen] = useState(false);
 
   const containerRef = useRef();
   const animationRef = useRef();
@@ -33,6 +36,16 @@ const Meal = (props) => {
     animationRef.current.style.transform = transformations.join(' ');
   };
 
+  const openAddToCartModal = () => {
+    setIsAddToCartModalOpen(true);
+    resetMoveMeal();
+  };
+
+  const closeAddToCartModal = () => {
+    resetMoveMeal();
+    setIsAddToCartModalOpen(false);
+  };
+
   return (
     <div
       ref={containerRef}
@@ -40,6 +53,14 @@ const Meal = (props) => {
       onMouseMove={moveMeal}
       onMouseOut={resetMoveMeal}
     >
+      {isAddToCartModalOpen && (
+        <AddToCartModal
+          item={meal.id}
+          meal={meal}
+          onAdd={addToCart}
+          onClose={closeAddToCartModal}
+        />
+      )}
       <div ref={animationRef} className={classes.animation}>
         <Card className={classes.card}>
           <div className={classes.content}>
@@ -51,10 +72,7 @@ const Meal = (props) => {
             <span className={classes.price}>${meal.price}</span>
           </div>
           <div className={classes.addToCartContainer}>
-            <div
-              onClick={() => addToCart(meal.id, 1)}
-              className={classes.addToCart}
-            >
+            <div onClick={openAddToCartModal} className={classes.addToCart}>
               <span>+</span>
               <span>Add to Cart</span>
             </div>
