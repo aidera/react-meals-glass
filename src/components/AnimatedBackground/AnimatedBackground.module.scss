@@ -14,20 +14,21 @@
 
 .wave1 {
   width: 120%;
-  margin-top: 5%;
+  margin-top: 0;
   margin-left: -10%;
   opacity: 0.5;
   fill: white;
   animation: wave1Animation 8s ease-in-out 0s infinite alternate;
 }
+.wave2 {
+  margin-top: -10%;
+}
 
 @keyframes wave1Animation {
   0% {
-    margin-top: 2%;
-    ransform: rotate(-5deg);
+    transform: scale(1);
   }
   100% {
-    margin-top: 5%;
-    transform: rotate(5deg);
+    transform: scale(1.1);
   }
 }

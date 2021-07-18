@@ -11,4 +11,8 @@
     width: 100%;
     padding: 60px 5vw;
   }
+
+  @media (max-width: 900px) {
+    flex-direction: column-reverse;
+  }
 }

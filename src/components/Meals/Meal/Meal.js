@@ -4,7 +4,7 @@ import classes from './Meal.module.scss';
 import Card from '../../UI/Card/Card';
 
 const Meal = (props) => {
-  const { meal } = props;
+  const { meal, addToCart } = props;
 
   const containerRef = useRef();
   const animationRef = useRef();
@@ -44,14 +44,20 @@ const Meal = (props) => {
         <Card className={classes.card}>
           <div className={classes.content}>
             <div className={classes.imageContainer}>
-              <img className={classes.image} src={meal.img} />
+              <img className={classes.image} src={meal.img} alt={meal.title} />
             </div>
             <h3 className={classes.h3}>{meal.title}</h3>
             <div className={classes.description}>{meal.description}</div>
             <span className={classes.price}>${meal.price}</span>
           </div>
-          <div>
-            <div className={classes.addToCart}><span>+</span><span>Add to Cart</span></div>
+          <div className={classes.addToCartContainer}>
+            <div
+              onClick={() => addToCart(meal.id, 1)}
+              className={classes.addToCart}
+            >
+              <span>+</span>
+              <span>Add to Cart</span>
+            </div>
             <div className={classes.addToCartBG}></div>
           </div>
         </Card>
