@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/react-meals-glass/static/css/main.9e5a3ca5.chunk.css",
+    "main.js": "/react-meals-glass/static/js/main.d7f3f62a.chunk.js",
+    "main.js.map": "/react-meals-glass/static/js/main.d7f3f62a.chunk.js.map",
+    "runtime-main.js": "/react-meals-glass/static/js/runtime-main.5848436f.js",
+    "runtime-main.js.map": "/react-meals-glass/static/js/runtime-main.5848436f.js.map",
+    "static/js/2.089e2cfe.chunk.js": "/react-meals-glass/static/js/2.089e2cfe.chunk.js",
+    "static/js/2.089e2cfe.chunk.js.map": "/react-meals-glass/static/js/2.089e2cfe.chunk.js.map",
+    "static/js/3.0081a1f9.chunk.js": "/react-meals-glass/static/js/3.0081a1f9.chunk.js",
+    "static/js/3.0081a1f9.chunk.js.map": "/react-meals-glass/static/js/3.0081a1f9.chunk.js.map",
+    "index.html": "/react-meals-glass/index.html",
+    "static/css/main.9e5a3ca5.chunk.css.map": "/react-meals-glass/static/css/main.9e5a3ca5.chunk.css.map",
+    "static/js/2.089e2cfe.chunk.js.LICENSE.txt": "/react-meals-glass/static/js/2.089e2cfe.chunk.js.LICENSE.txt",
+    "static/media/minus.fbdc1274.svg": "/react-meals-glass/static/media/minus.fbdc1274.svg",
+    "static/media/plus.7dfd49b1.svg": "/react-meals-glass/static/media/plus.7dfd49b1.svg",
+    "static/media/remove.bb5cb0cc.svg": "/react-meals-glass/static/media/remove.bb5cb0cc.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.5848436f.js",
+    "static/js/2.089e2cfe.chunk.js",
+    "static/css/main.9e5a3ca5.chunk.css",
+    "static/js/main.d7f3f62a.chunk.js"
+  ]
+}
