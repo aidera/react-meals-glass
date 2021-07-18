@@ -18,5 +18,16 @@
   margin-left: -10%;
   opacity: 0.5;
   fill: white;
+  animation: wave1Animation 8s ease-in-out 0s infinite alternate;
 }
 
+@keyframes wave1Animation {
+  0% {
+    margin-top: 2%;
+    ransform: rotate(-5deg);
+  }
+  100% {
+    margin-top: 5%;
+    transform: rotate(5deg);
+  }
+}

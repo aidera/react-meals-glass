@@ -32,7 +32,7 @@ const AnimatedBackground = () => {
     <div  className={classes.background}>
       <svg
         className={classes.wave1}
-        viewBox="0 0 500 500"
+        viewBox="0 0 500 600"
         preserveAspectRatio="xMinYMin meet"
       >
         <path
@@ -42,6 +42,7 @@ const AnimatedBackground = () => {
       </svg>
       <svg
         viewBox="0 0 500 500"
+        className={classes.wave2}
         preserveAspectRatio="xMinYMin meet"
       >
         <linearGradient id="linear-gradient">
