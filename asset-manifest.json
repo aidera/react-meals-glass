@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/react-meals-glass/static/css/main.9e5a3ca5.chunk.css",
-    "main.js": "/react-meals-glass/static/js/main.d7f3f62a.chunk.js",
-    "main.js.map": "/react-meals-glass/static/js/main.d7f3f62a.chunk.js.map",
+    "main.js": "/react-meals-glass/static/js/main.dbf3a96a.chunk.js",
+    "main.js.map": "/react-meals-glass/static/js/main.dbf3a96a.chunk.js.map",
     "runtime-main.js": "/react-meals-glass/static/js/runtime-main.5848436f.js",
     "runtime-main.js.map": "/react-meals-glass/static/js/runtime-main.5848436f.js.map",
     "static/js/2.089e2cfe.chunk.js": "/react-meals-glass/static/js/2.089e2cfe.chunk.js",
@@ -20,6 +20,6 @@
     "static/js/runtime-main.5848436f.js",
     "static/js/2.089e2cfe.chunk.js",
     "static/css/main.9e5a3ca5.chunk.css",
-    "static/js/main.d7f3f62a.chunk.js"
+    "static/js/main.dbf3a96a.chunk.js"
   ]
 }
