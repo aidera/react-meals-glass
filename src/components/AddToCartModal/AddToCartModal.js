@@ -1,27 +1,18 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import ReactDOM from 'react-dom';
 
 import classes from './AddToCartModal.module.scss';
 import Backdrop from '../UI/Backdrop/Backdrop';
 import ModalOverlay from '../UI/ModalOverlay/ModalOverlay';
+import CartContext from '../../store/cart.context';
 
 const AddToCartModal = (props) => {
-  const { meal, onClose, onAdd } = props;
+  const { meal, onClose } = props;
+
+  const context = useContext(CartContext);
 
   const [amount, setAmount] = useState(1);
   const [total, setTotal] = useState(0);
-
-  const onChangeHandler = (event) => {
-    let amount = event.target.value;
-    setAmount(amount);
-  };
-
-  const onAddHandler = () => {
-    if (+amount > 0) {
-      onAdd(meal.id, +amount);
-      onClose();
-    }
-  };
 
   useEffect(() => {
     let newTotal = Math.round(meal.price * +amount * 100) / 100;
@@ -30,6 +21,19 @@ const AddToCartModal = (props) => {
     }
     setTotal(newTotal);
   }, [amount, meal]);
+
+  const onChangeHandler = (event) => {
+    let amount = event.target.value;
+    setAmount(amount);
+  };
+
+  const onSubmitHandler = (event) => {
+    event.preventDefault();
+    if (+amount > 0) {
+      context.addToCart({ itemId: meal.id, amount: +amount });
+      onClose();
+    }
+  };
 
   return (
     <>
@@ -40,7 +44,7 @@ const AddToCartModal = (props) => {
       {ReactDOM.createPortal(
         <ModalOverlay className={classes.modal}>
           <h2>{meal.title}</h2>
-          <div className={classes.content}>
+          <form className={classes.form} onSubmit={onSubmitHandler}>
             <div>
               <input
                 type="number"
@@ -53,13 +57,15 @@ const AddToCartModal = (props) => {
             <div>
               <button
                 className={classes.button}
-                onClick={onAddHandler}
+                onClick={onSubmitHandler}
+                onSubmit={onSubmitHandler}
                 disabled={+amount <= 0}
+                type="submit"
               >
                 Add to cart
               </button>
             </div>
-          </div>
+          </form>
         </ModalOverlay>,
         document.getElementById('overlay-root')
       )}

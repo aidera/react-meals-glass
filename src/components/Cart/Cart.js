@@ -1,18 +1,20 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
 import Card from '../UI/Card/Card';
 import classes from './Cart.module.scss';
 import { ReactComponent as PlusIcon } from '../../assets/icons/plus.svg';
 import { ReactComponent as MinusIcon } from '../../assets/icons/minus.svg';
 import { ReactComponent as RemoveIcon } from '../../assets/icons/remove.svg';
+import CartContext from '../../store/cart.context';
 
 const Cart = (props) => {
-  const { cartItems, meals, addToCart, subtractFromCart, removeFromCart } =
-    props;
+  const { meals } = props;
+
+  const context = useContext(CartContext);
 
   const getCartTotal = () => {
     let total = 0;
-    cartItems.forEach((cartItem) => {
+    context.cartState.items.forEach((cartItem) => {
       const meal = meals.find((meal) => cartItem.id === meal.id);
       total += meal.price * cartItem.amount;
       total = Math.round(total * 100) / 100;
@@ -23,15 +25,15 @@ const Cart = (props) => {
   return (
     <div className={classes.cartContainer}>
       <Card className={classes.cart}>
-        {cartItems.length <= 0 && (
+        {context.cartState.items.length <= 0 && (
           <div className={classes.emptyCart}>
             <span className={classes.error}>Cart is empty. Add something!</span>
           </div>
         )}
-        {cartItems.length > 0 && (
+        {context.cartState.items.length > 0 && (
           <>
             <ul>
-              {cartItems.map((item) => {
+              {context.cartState.items.map((item) => {
                 const meal = meals.find((meal) => item.id === meal.id);
                 return (
                   <li key={item.id}>
@@ -50,19 +52,28 @@ const Cart = (props) => {
                     <div className={classes.actions}>
                       <button
                         className={classes.plus}
-                        onClick={() => addToCart(item.id, 1)}
+                        onClick={() =>
+                          context.addToCart({ itemId: item.id, amount: 1 })
+                        }
                       >
                         <PlusIcon />
                       </button>
                       <button
                         className={classes.minus}
-                        onClick={() => subtractFromCart(item.id, 1)}
+                        onClick={() =>
+                          context.substractFromCart({
+                            itemId: item.id,
+                            amount: 1,
+                          })
+                        }
                       >
                         <MinusIcon />
                       </button>
                       <button
                         className={classes.remove}
-                        onClick={() => removeFromCart(item.id)}
+                        onClick={() =>
+                          context.removeFromCart({ itemId: item.id })
+                        }
                       >
                         <RemoveIcon />
                       </button>

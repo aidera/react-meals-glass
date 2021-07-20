@@ -5,7 +5,7 @@ import Card from '../../UI/Card/Card';
 import AddToCartModal from '../../AddToCartModal/AddToCartModal';
 
 const Meal = (props) => {
-  const { meal, addToCart } = props;
+  const { meal } = props;
 
   const [isAddToCartModalOpen, setIsAddToCartModalOpen] = useState(false);
 
@@ -57,7 +57,6 @@ const Meal = (props) => {
         <AddToCartModal
           item={meal.id}
           meal={meal}
-          onAdd={addToCart}
           onClose={closeAddToCartModal}
         />
       )}
