@@ -83,4 +83,4 @@ const Meal = (props) => {
   );
 };
 
-export default Meal;
+export default React.memo(Meal);

@@ -10,4 +10,4 @@ const ModalOverlay = (props) => {
   );
 };
 
-export default ModalOverlay;
+export default React.memo(ModalOverlay);

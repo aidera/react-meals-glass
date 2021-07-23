@@ -7,4 +7,4 @@ const Card = (props) => {
   return <div className={classes.card + ' ' + className}>{children}</div>;
 };
 
-export default Card;
+export default React.memo(Card);

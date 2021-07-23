@@ -1,18 +1,19 @@
-import React, { useContext } from 'react';
+import React, { useContext, useMemo } from 'react';
 
 import Card from '../UI/Card/Card';
 import classes from './Cart.module.scss';
+import CartContext from '../../store/cart.context';
 import { ReactComponent as PlusIcon } from '../../assets/icons/plus.svg';
 import { ReactComponent as MinusIcon } from '../../assets/icons/minus.svg';
 import { ReactComponent as RemoveIcon } from '../../assets/icons/remove.svg';
-import CartContext from '../../store/cart.context';
 
 const Cart = (props) => {
   const { meals } = props;
 
   const context = useContext(CartContext);
 
-  const getCartTotal = () => {
+  /** We can wrap total price in useMemo to avoid it's recalls */
+  const totalPrice = useMemo(() => {
     let total = 0;
     context.cartState.items.forEach((cartItem) => {
       const meal = meals.find((meal) => cartItem.id === meal.id);
@@ -20,7 +21,7 @@ const Cart = (props) => {
       total = Math.round(total * 100) / 100;
     });
     return total;
-  };
+  }, [context.cartState.items, meals])
 
   return (
     <div className={classes.cartContainer}>
@@ -82,7 +83,7 @@ const Cart = (props) => {
                 );
               })}
             </ul>
-            <div className={classes.total}>Total: ${getCartTotal()}</div>
+            <div className={classes.total}>Total: ${totalPrice}</div>
           </>
         )}
       </Card>
@@ -90,4 +91,5 @@ const Cart = (props) => {
   );
 };
 
+/**  We use context state that always change, so React.memo is useless */
 export default Cart;

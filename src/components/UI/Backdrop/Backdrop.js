@@ -7,4 +7,4 @@ const Backdrop = (props) => {
   return <div onClick={onClick} className={classes.backdrop}></div>;
 };
 
-export default Backdrop;
+export default React.memo(Backdrop);

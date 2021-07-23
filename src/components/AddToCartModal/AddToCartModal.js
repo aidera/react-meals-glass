@@ -73,4 +73,4 @@ const AddToCartModal = (props) => {
   );
 };
 
-export default AddToCartModal;
+export default React.memo(AddToCartModal);

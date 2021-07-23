@@ -15,4 +15,4 @@ const Meals = (props) => {
   );
 };
 
-export default Meals;
+export default React.memo(Meals);
